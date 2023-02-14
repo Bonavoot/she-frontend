@@ -1,69 +1,140 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+* {
+  font-family: 'Josefin Sans', sans-serif;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
+.nav-bar {
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  font-size: 10pt;
+  
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.links {
+  display: flex;
+  gap: 80px;
+  margin-right: 3%;
+}
+
+.logo {
+  width: 250px;
+}
+
+.home {
+  display: flex;
+  justify-content: flex-start;
+  gap: 100px;
+}
+
+.stock-chart {
+  border: black solid 2px;
+  height: 350px;
+  width: 950px;
+  text-align: center;
+}
+
+.stock-info {
+  display: flex;
+  justify-content: space-between;
+  height: 250px;
+  border: solid black 2px;
+
+}
+
+.stock-info-left {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  margin-left: 20px;
+}
+
+
+.stock-info-right {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+  margin-right: 50px;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.buy-btn {
+  padding: 10px 20px;
+  background-color: rgb(49, 177, 49);
+  border: none;
+  box-shadow: 0px 0px 2px 1px;
+}
+
+.sell-btn {
+  padding: 10px 20px;
+  background-color: rgb(255, 71, 71);
+  border: none;
+  box-shadow: 0px 0px 2px 1px;
+}
+
+.skip-btn {
+  padding: 10px 20px;
+  background-color: rgb(255, 255, 110);
+  border: none;
+  box-shadow: 0px 0px 2px 1px;
+}
+
+.buy-btn:hover {
+  box-shadow: 0px 0px 3px 2px;
+}
+
+.sell-btn:hover {
+  box-shadow: 0px 0px 3px 2px;
+}
+
+.skip-btn:hover {
+  box-shadow: 0px 0px 3px 2px;
+}
+
+
+.stock-list {
+  border: solid black 2px;
+  margin-top: 0px;
+  width: 250px;
+  height: 632px;
+  overflow: scroll;
+  margin-left: 15px;
+  box-shadow: 0px 0px 4px 1px;
+}
+
+.stock-list-item {
+  display: flex;
+  justify-content: space-between;
+  margin-left: -25px;
+  border-bottom: black solid 1px;
+  align-items: center;
+}
+
+.stock-list-item-price {
+  margin-right: 25px;
+  background-color: rgb(49, 177, 49);
+  padding: 4px 8px;
+  border: 2px solid black;
+  font-size: 14pt;
+}
+
+.watchlist-text {
+  margin-left: -30px;
+}
+
+.all-stocks-text {
+  margin-top: 30px;
+  margin-left: -30px;
+}
+
+
+.stock-data {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-left: 25px;
 }
