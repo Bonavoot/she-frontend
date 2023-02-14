@@ -1,6 +1,5 @@
 import StockListItem from "./StockListItem"
 
-
 const StockList = () => {
 
     return (
