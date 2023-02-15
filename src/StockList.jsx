@@ -5,13 +5,13 @@ const StockList = () => {
     return (
         <ul className="stock-list">
             <div>
-            <h1 className="watchlist-text">Watchlist</h1>
+            <h1 className="watchlist-text">Watchlist <span class="material-symbols-outlined">star</span></h1>
             <StockListItem />
             <StockListItem />
             <StockListItem />
             </div>
             <div className="all-stocks">
-            <h1 className="all-stocks-text">All Stocks</h1>
+            <h1 className="all-stocks-text">All Stocks <span class="material-symbols-outlined">newspaper</span></h1>
             <StockListItem />
             <StockListItem />
             <StockListItem />

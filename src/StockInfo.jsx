@@ -4,14 +4,14 @@ const StockInfo = () => {
         <>
         <div className="stock-info">
         <div className="stock-info-left">
-            <h1>APPLE - APPL</h1>
-            <h3>PRICE: $212</h3>
-            <h3>VOLUME: 12m</h3>
+            <h1>Apple - APPL</h1>
+            <h3>Price: $212</h3>
+            <h3>Volume: 12m</h3>
         </div>
         <div className="stock-info-right">
-            <button className="buy-btn">BUY</button>
-            <button className="sell-btn">SELL</button>
-            <button className="skip-btn">SKIP DAY --</button>
+            <button className="buy-btn">Buy</button>
+            <button className="sell-btn">Sell</button>
+            <button className="skip-btn">Skip Day --</button>
         </div>
         </div>
         </>
