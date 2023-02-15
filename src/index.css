@@ -174,7 +174,7 @@ button {
   margin-left: -30px;
   color: rgb(255, 255, 255);
   display: flex;
-  gap: 31%;
+  gap: 5%;
   font-size: 21pt;
 }
 
@@ -182,7 +182,7 @@ button {
   margin-top: 30px;
   margin-left: -30px;
   display: flex;
-  gap: 29%;
+  gap: 5%;
   font-size: 21pt;
   
 }
