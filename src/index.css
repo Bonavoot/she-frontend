@@ -71,7 +71,7 @@ html {
   height: 350px;
   width: 950px;
   text-align: center;
-  margin-left: 20px;
+  margin-left: 12px;
   background-color: white;
 }
 
@@ -99,12 +99,12 @@ html {
   justify-content: center;
   flex-direction: column;
   gap: 40px;
-  margin-right: 50px;
+  margin-right: 15px;
 }
 
 button {
   cursor: pointer;
-  font-size: 11pt;
+  font-size: 12pt;
 }
 
 .buy-btn {
@@ -146,7 +146,7 @@ button {
   height: 632px;
   overflow: scroll;
   margin-left: 15px;
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(255, 255, 255, 0.05);
   color: white;
 }
 
