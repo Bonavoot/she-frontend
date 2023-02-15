@@ -1,19 +1,25 @@
-function SignUp({ onLogin }) {
+
+import React, { useState } from "react";
+
+const Signup = ({onLogin}) => {
+  
     const [username, setUsername] = useState("");
+    const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
   
     function handleSubmit(e) {
       e.preventDefault();
-      fetch("/signup", {
+      fetch('http://localhost:3000/signup', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username,
-          password,
-          password_confirmation: passwordConfirmation,
+          "name": name,
+          "username": username,
+          "password": password,
+          "password_confirmation": passwordConfirmation
         }),
       })
         .then((r) => r.json())
@@ -28,6 +34,13 @@ function SignUp({ onLogin }) {
           id="username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+        />
+        <label htmlFor="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
         <label htmlFor="password">Password:</label>
         <input
@@ -47,3 +60,5 @@ function SignUp({ onLogin }) {
       </form>
     );
   }
+
+  export default Signup;
