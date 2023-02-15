@@ -7,5 +7,4 @@ const StockChart = () => {
         </div>
     )
 }
-
 export default StockChart

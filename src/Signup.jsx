@@ -1,13 +1,10 @@
-
 import React, { useState } from "react";
 
-const Signup = ({onLogin}) => {
-  
+const Signup = ({setUser}) => {
     const [username, setUsername] = useState("");
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  
     function handleSubmit(e) {
       e.preventDefault();
       fetch('http://localhost:3000/signup', {
@@ -23,9 +20,9 @@ const Signup = ({onLogin}) => {
         }),
       })
         .then((r) => r.json())
-        .then(onLogin);
+        .then(setUser);
+        
     }
-  
     return (
       <form onSubmit={handleSubmit}>
         <label htmlFor="username">Username:</label>
@@ -61,4 +58,4 @@ const Signup = ({onLogin}) => {
     );
   }
 
-  export default Signup;
+  export default Signup
