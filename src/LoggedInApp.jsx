@@ -9,6 +9,7 @@ function LoggedInApp({ user, setUser }) {
 
     return (
       <div>
+        Welcome {user.username}!
           <NavBar handleLogout={handleLogout} />
           <Home />
       </div>
