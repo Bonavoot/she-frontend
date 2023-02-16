@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Signup from "./Signup"
+import logo from "./assets/she-logo.png"
+
+
 
 function LoginForm({ setUser }) {
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
+  const [formToggle, setFormToggle] = useState(false)
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate()
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = (e) => {
     const configObj = {
@@ -18,13 +18,17 @@ function LoginForm({ setUser }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify({
+        "username": username,
+        "password": password
+      }),
     };
     e.preventDefault();
     fetch("/login", configObj).then((resp) => {
       if (resp.ok) {
         resp.json().then((user) => {
           setUser(user);
+          navigate("/home")
         });
       } else {
         resp.json().then((errors) => {
@@ -33,37 +37,43 @@ function LoginForm({ setUser }) {
       }
     });
   };
+
   return (
-    <div>
+    <div className="login">
+    <img id="login-logo" src={logo} alt="logo" />
+    {!formToggle ? 
+    <div className="login-form">
       <form onSubmit={handleSubmit}>
         <h1>Log In</h1>
         <p>
-          <label htmlFor="username">Username </label>
+          <label htmlFor="username"></label>
           <input
             type="text"
             name="username"
-            value={formData.username}
-            onChange={(e) => handleChange(e)}
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </p>
         <p>
-          <label htmlFor="password">Password </label>
+          <label htmlFor="password"></label>
           <input
             type="password"
             name="password"
-            value={formData.password}
-            onChange={(e) => handleChange(e)}
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </p>
         <p>
-          <button type="submit">Log In</button>
+          <button className="login-submit" type="submit">Log In</button>
         </p>
-        <p>Don't have an account?</p>
-        <p>
-          <Link to="/signup">Sign Up</Link>
-        </p>
+          <div onClick={() => setFormToggle(!formToggle)}>Don't have an account?<span className="sign-up-link"> Sign Up</span></div>
       </form>
-    </div>
+    </div> :
+  <Signup formToggle={formToggle} setUser={setUser} setFormToggle={setFormToggle} />
+  }
+  </div>
   );
 }
 

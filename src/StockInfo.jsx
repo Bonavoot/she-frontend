@@ -1,4 +1,4 @@
-const StockInfo = () => {
+const StockInfo = ({price, prevPrice, volume, name}) => {
 
     return (
         <>
@@ -11,7 +11,6 @@ const StockInfo = () => {
         <div className="stock-info-right">
             <button className="buy-btn">Buy</button>
             <button className="sell-btn">Sell</button>
-            <button className="skip-btn">Skip Day --</button>
         </div>
         </div>
         </>

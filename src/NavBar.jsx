@@ -6,7 +6,7 @@ const NavBar = ({user}) => {
     
     return (
         <div className="nav-bar">
-        <img onClick={() => navigate("/home")} className="logo" src={logo} alt="logo" />
+        <img className="logo" src={logo} alt="logo" />
         <div className="search-container">
         <span className="material-symbols-outlined" id="search-icon">
         search
@@ -16,16 +16,12 @@ const NavBar = ({user}) => {
         <div className="links">
         <h2>Portfolio</h2>
         <h2>Watchlist</h2>
-        
         { user ?
         <>
         <h2 id="welcome">Welcome, name!</h2>
-            <h1 onClick={() => navigate("/")}>Logout</h1> 
+            <h2 onClick={() => navigate("/")}>Logout</h2> 
         </> : null
-            
-        
         }
-        
         </div>
         </div>
     )
