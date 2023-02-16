@@ -8,10 +8,12 @@ function LoggedInApp({ user, setUser }) {
     };
 
     return (
-      <div>
-          <NavBar handleLogout={handleLogout} />
-          <Home />
-      </div>
+     <div className="container">
+        <NavBar handleLogout={handleLogout} />
+        <Home />
+
+     </div>
+
     );
   }
   

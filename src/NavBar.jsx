@@ -8,7 +8,7 @@ const NavBar = ({user}) => {
         <div className="nav-bar">
         <img onClick={() => navigate("/home")} className="logo" src={logo} alt="logo" />
         <div className="search-container">
-        <span class="material-symbols-outlined" id="search-icon">
+        <span className="material-symbols-outlined" id="search-icon">
         search
         </span>
         <input className="search" type="text" placeholder="Search" />
