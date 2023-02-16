@@ -1,7 +1,7 @@
 import './index.css'
 import { useState, useEffect } from 'react'
 import LoggedOutApp from './LoggedOutApp';
-import NavBar from './NavBar';
+import LoggedInApp from './LoggedInApp';
 import {
   createBrowserRouter,
   RouterProvider,

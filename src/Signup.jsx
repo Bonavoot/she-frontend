@@ -64,7 +64,6 @@ const Signup = ({formToggle, setFormToggle, setUser}) => {
         />
         <button className="signup-submit" type="submit">Submit</button>
         <div onClick={() => setFormToggle(!formToggle)}>Already have an account?<span className="login-link"> Login</span></div>
-       
       </form>
       </div>
       
