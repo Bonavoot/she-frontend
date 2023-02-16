@@ -1,5 +1,6 @@
 import {useState, useEffect} from "react"
 import Chart from 'react-apexcharts';
+import StockInfo from "./StockInfo";
 
 const StockChart = () => {
      const [price, setPrice] = useState(-1)
@@ -10,7 +11,7 @@ const StockChart = () => {
 
      const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
      let stockSymbol = 'tsla';
-     let API_Call = `${proxyUrl}https://query1.finance.yahoo.com/v8/finance/chart/${stockSymbol}`;
+     let API_Call = "" //`${proxyUrl}https://query1.finance.yahoo.com/v8/finance/chart/${stockSymbol}`;
     
      const round = (number) => {
         return number ? +(number.toFixed(2)) : null;
@@ -38,7 +39,7 @@ const StockChart = () => {
                 data: prices,
               }]);
             
-            // setTimeout(getLatestPrice, 10000);
+            //setTimeout(getLatestPrice, 10000);
         }
 
         getLatestPrice()
@@ -71,15 +72,29 @@ const StockChart = () => {
   
 
     return (
-        <>
-        <div className={["price", prevPrice < price ? "up" : prevPrice > price ? "down" : ""].join(" ")}>
-        {price}
-      </div> 
-      <Chart options={chart.options} series={series} type="candlestick" width="900" height={350} />
-        </>
-      
+    <div className="stock-data">
+     <div className={["price", prevPrice < price ? "up" : prevPrice > price ? "down" : ""].join(" ")}>
+    {price}
+    </div>  
+    <Chart options={chart.options} series={series} type="candlestick" width="1000" height={350} />
+    <StockInfo price={price} prevPrice={prevPrice} />
+    </div>
+
     )
   }
 
 
 export default StockChart;
+
+// buying_power = 10000
+// total_balance = 10000
+
+// on buy
+// current_user.buying_power = current_user.buying_power - (stock.price * quantity)
+
+// on sell
+// current_user.buying_power = current_user.buying_power + (stock.price * quantity)
+
+
+
+// data.chart.result[0].meta.symbol  outputs => "GME"

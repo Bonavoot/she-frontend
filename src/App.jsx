@@ -1,8 +1,11 @@
 import './index.css'
 import { useState, useEffect } from 'react'
 import LoggedOutApp from './LoggedOutApp';
-import { BrowserRouter as Router } from "react-router-dom"
 import NavBar from './NavBar';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -15,30 +18,20 @@ function App() {
     });
   }, []);
 
-return (
-<div>
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <LoggedOutApp user={user} setUser={setUser} />,
+    },
+    {
+      path: "/home",
+      element: <LoggedInApp user={user} setUser={setUser} />,
+    },
+  ]);
 
-{/* if logged in, show info about the user */}
-{/* otherwise, show the login/signup forms */}
-{/* <SignupForm /> */}
-<Router>
-  {/* if logged in, show info about the user */}
-  {user ? (
-    <LoggedInApp
-      user={user}
-      setUser={setUser}
-    />
-  ) : (
-    /* otherwise, show the login/signup forms */
-    <>
-    <NavBar user={user} />
-    <LoggedOutApp setUser={setUser} />
-    </>
-  )}
-</Router>
-</div>
-)  
-}
+return (
+<RouterProvider router={router} />
+)}
 
 export default App
 

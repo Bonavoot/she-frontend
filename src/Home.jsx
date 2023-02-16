@@ -1,15 +1,12 @@
 import StockChart from "./StockChart"
-import StockInfo from "./StockInfo"
 import StockList from "./StockList"
 
 const Home = () => {
-
     return (
         <>
         <div className="home">
         <div className="stock-data">
         <StockChart />
-        <StockInfo />
         </div>
         <div className="list">
         <StockList />
