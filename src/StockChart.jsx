@@ -1,18 +1,5 @@
-// import stockChartImage from "./assets/stock-chart-5-year.png"
-// const StockChart = () => {
-//     return (
-//         <div className="stock-chart">
-//             <img className="stock-chart"  src={stockChartImage} alt="chart" />
-//         </div>
-//     )
-// }
-// export default StockChart
-// import React, { useEffect } from 'react';
-
 import {useState, useEffect} from "react"
 import Chart from 'react-apexcharts';
-
-
 
 const StockChart = () => {
      const [price, setPrice] = useState(-1)
@@ -28,7 +15,6 @@ const StockChart = () => {
      const round = (number) => {
         return number ? +(number.toFixed(2)) : null;
       };
-      
 
      async function fetchStocks() {
         const res = await fetch(API_Call)
@@ -86,9 +72,9 @@ const StockChart = () => {
 
     return (
         <>
-        {/* <div className={["price", prevPrice < price ? "up" : prevPrice > price ? "down" : ""].join(" ")}>
+        <div className={["price", prevPrice < price ? "up" : prevPrice > price ? "down" : ""].join(" ")}>
         {price}
-      </div> */}
+      </div> 
       <Chart options={chart.options} series={series} type="candlestick" width="900" height={350} />
         </>
       
