@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import{ useNavigate} from 'react-router-dom'
 
 const Signup = ({setUser}) => {
     const [username, setUsername] = useState("");
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
+    const navigate = useNavigate()
+
     function handleSubmit(e) {
       e.preventDefault();
       fetch('http://localhost:3000/signup', {
@@ -21,7 +24,7 @@ const Signup = ({setUser}) => {
       })
         .then((r) => r.json())
         .then(setUser);
-        
+        navigate("/")
     }
     return (
       <form onSubmit={handleSubmit}>
