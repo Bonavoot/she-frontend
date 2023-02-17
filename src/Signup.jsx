@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import{ useNavigate} from 'react-router-dom'
 
-const Signup = ({setUser}) => {
+const Signup = ({formToggle, setFormToggle, setUser}) => {
     const [username, setUsername] = useState("");
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
+    const navigate = useNavigate()
+
     function handleSubmit(e) {
       e.preventDefault();
       fetch('http://localhost:3000/signup', {
@@ -21,40 +24,49 @@ const Signup = ({setUser}) => {
       })
         .then((r) => r.json())
         .then(setUser);
-        
+        navigate("/home")
     }
     return (
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
+      <div className="signup-form-container">
+        <h1>Sign Up</h1>
+        <form className="signup-form" onSubmit={handleSubmit}>
+        <label htmlFor="username"></label>
         <input
           type="text"
           id="username"
+          placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="name"></label>
         <input
           type="text"
           id="name"
+          placeholder="Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password"></label>
         <input
           type="password"
           id="password"
           value={password}
+          placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <label htmlFor="password_confirmation">Confirm Password:</label>
+        <label htmlFor="password_confirmation"></label>
         <input
           type="password"
           id="password_confirmation"
+          placeholder="Confirm Password"
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
         />
-        <button type="submit">Submit</button>
+        <button className="signup-submit" type="submit">Submit</button>
+        <div onClick={() => setFormToggle(!formToggle)}>Already have an account?<span className="login-link"> Login</span></div>
       </form>
+      </div>
+      
     );
   }
 

@@ -3,7 +3,8 @@
 }
 
 html {
-  background-color: #222224;;
+  background-color: #222224;
+  width: 100vw;
 }
 
 .nav-bar {
@@ -20,10 +21,6 @@ html {
 
 .nav-bar * h2:hover {
   background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-}
-
-.signup-form > p {
   color: white;
 }
 
@@ -49,11 +46,15 @@ html {
   font-size: 20px;
   padding-left: 45px;
   padding-top: 4px;
+  position: absolute;
+  left: 300px;
+
 }
 
 #search-icon {
   z-index: 99;
-  margin-right: -30px;
+  position: absolute;
+  left: 310px;
 }
 
 #welcome:hover {
@@ -65,25 +66,67 @@ html {
   width: 200px;
 }
 
-.signup-form {
+.login {
   display: flex;
   flex-direction: column;
-  width: 300px;
-  gap: 20px;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  left: 39%;
-  top: 30%;
 }
 
-.signup-form > label {
+#login-logo {
+ width: 75vw;
+}
+
+.login-form {
+  margin-top: -5px;
   color: white;
 }
 
-.signup-form > input {
+.login-form * input {
   width: 250px;
-  height: 25px;
+  height: 30px;
+  font-size: 14pt;
+  padding-left: 5px;
+}
+
+.sign-up-link {
+  color: blue;
+}
+
+.signup-form-container {
+  text-align: center;
+  color: white;
+}
+
+.signup-form-container > h1 {
+  
+}
+
+.signup-form-container * input {
+  width: 250px;
+  height: 30px;
+  font-size: 14pt;
+  padding-left: 5px;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  gap: 10px;
+}
+
+.signup-submit {
+  background-color: rgb(80, 171, 45);
+  color: white;
+  border: none;
+  padding: 10px 10px;
+}
+
+.login-link {
+  color: blue;
 }
 
 .login-form {
@@ -93,10 +136,19 @@ html {
   gap: 20px;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
-.login-form > label {
+.login-submit {
+  background-color: rgb(80, 171, 45);
   color: white;
+  border: none;
+  padding: 10px 10px;
+}
+
+.login-submit:hover {
+  background-color: rgba(81, 171, 45, 0.568);
+
 }
 
 .home {
@@ -113,14 +165,29 @@ html {
   background-color: white;
 }
 
+.up {
+  color: rgb(40, 230, 40);
+}
+
+.down {
+  color: red;
+}
+
 .stock-info {
   color: white;
   display: flex;
-  justify-content: space-between;
+  gap: 50px;
   height: 250px;
-  border-top: 2px solid rgba(255, 255, 255, 0.15);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+  border-top: 2px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.4);
   margin-left: 20px;
+}
+
+.price {
+  position: absolute;
+  left: 215px;
+  top: 110px;
+  font-size: 21pt;
 }
 
 .stock-info-left {
@@ -135,8 +202,8 @@ html {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  gap: 40px;
-  margin-right: 15px;
+  gap: 25px;
+  margin-right: 25px;
 }
 
 button {
@@ -145,7 +212,7 @@ button {
 }
 
 .buy-btn {
-  padding: 10px 20px;
+  padding: 20px 40px;
   background-color: rgb(40, 230, 40);
   border: none;
   box-shadow: 0px 0px 2px 1px;
@@ -158,13 +225,6 @@ button {
   box-shadow: 0px 0px 2px 1px;
 }
 
-.skip-btn {
-  padding: 10px 20px;
-  background-color: black;
-  color: yellow;
-  border: none;
-  box-shadow: 0px 0px 2px 1px;
-}
 
 .buy-btn:hover {
   background-color: rgba(40, 230, 40, 0.5);
@@ -174,23 +234,20 @@ button {
   background-color: rgb(255, 71, 71, 0.5);
 }
 
-.skip-btn:hover {
-  background-color: rgb(255, 255, 110, 0.5);
-}
 
 .stock-list {
   margin-top: 3px;
   width: 260px;
-  height: 632px;
+  height: 660px;
   overflow: scroll;
-  margin-left: 15px;
-  background-color: rgba(255, 255, 255, 0.05);
+  margin-left: 0px;
+  background-color: rgb(28, 28, 28);
   color: white;
 }
 
 .stock-list-item {
   display: flex;
-  color: rgb(175, 175, 175);
+  color: rgb(255, 255, 255);
   justify-content: space-between;
   margin-left: -25px;
   border-bottom: grey solid 1px;
@@ -230,3 +287,4 @@ button {
   gap: 25px;
   margin-left: 25px;
 }
+
