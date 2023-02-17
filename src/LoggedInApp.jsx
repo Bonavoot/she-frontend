@@ -22,5 +22,3 @@ function LoggedInApp({ user, setUser }) {
   }
   
   export default LoggedInApp;
-
-
