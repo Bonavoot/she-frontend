@@ -2,28 +2,29 @@ import {useState, useEffect} from "react"
 import Chart from 'react-apexcharts';
 import StockInfo from "./StockInfo";
 
-const StockChart = () => {
-     const [price, setPrice] = useState(-1)
+const StockChart = ({volume, user, stockSymbol}) => {
+     const [price, setPrice] = useState(10)
      const [prevPrice, setPrevPrice] = useState(-1)
      const [priceTime, setPriceTime] = useState(null)
      const [series, setSeries] = useState([{data: []}])
-     
-
      const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
-     let stockSymbol = 'tsla';
-     let API_Call = "" //`${proxyUrl}https://query1.finance.yahoo.com/v8/finance/chart/${stockSymbol}`;
+     // let API_Call = `${proxyUrl}https://query1.finance.yahoo.com/v8/finance/chart/${stockSymbol}`;
+ 
+    console.log(stockSymbol)
     
      const round = (number) => {
         return number ? +(number.toFixed(2)) : null;
       };
 
-     async function fetchStocks() {
-        const res = await fetch(API_Call)
-        return res.json()
-    }
 
     useEffect(() => {
        // let timeoutId;
+       async function fetchStocks() {
+        const res = await fetch("")//`${proxyUrl}https://query1.finance.yahoo.com/v8/finance/chart/${stockSymbol}`)
+        console.log(res)
+        return res.json()
+    }
+    fetchStocks()
         async function getLatestPrice() {
             const data = await fetchStocks()
             const gme = data.chart.result[0]
@@ -41,13 +42,8 @@ const StockChart = () => {
             
             //setTimeout(getLatestPrice, 10000);
         }
-
         getLatestPrice()
-        // don't need ** timeoutId = setTimeout(getLatestPrice, 10000);
-        // return () => {
-        //   clearTimeout(timeoutId)
-        // };
-  }, [])
+  }, [stockSymbol])
 
   const chart = {
     options: {
@@ -69,17 +65,15 @@ const StockChart = () => {
       }
     },
   };
-  
-
-    return (
+    
+  return (
     <div className="stock-data">
      <div className={["price", prevPrice < price ? "up" : prevPrice > price ? "down" : ""].join(" ")}>
     {price}
     </div>  
     <Chart options={chart.options} series={series} type="candlestick" width="1000" height={350} />
-    <StockInfo price={price} prevPrice={prevPrice} />
+    <StockInfo volume={volume}  user={user} price={price} stockSymbol={stockSymbol.toUpperCase()} prevPrice={prevPrice} />
     </div>
-
     )
   }
 

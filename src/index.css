@@ -98,9 +98,9 @@ html {
   color: white;
 }
 
-.signup-form-container > h1 {
+/* .signup-form-container > h1 {
   
-}
+} */
 
 .signup-form-container * input {
   width: 250px;
@@ -177,6 +177,7 @@ html {
   color: white;
   display: flex;
   gap: 50px;
+  justify-content: space-between;
   height: 250px;
   border-top: 2px solid rgba(255, 255, 255, 0.4);
   border-bottom: 2px solid rgba(255, 255, 255, 0.4);
@@ -194,17 +195,48 @@ html {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 75px;
   margin-left: 20px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.buy-sell-btns {
+  display: flex;
+  gap: 25px;
+  flex-direction: column;
+}
+
+.buy-input-container, .sell-input-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.buy-input, .sell-input {
+ width: 25px;
+ height: 20px;
 }
 
 .stock-info-right {
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  gap: 25px;
-  margin-right: 25px;
+  
 }
+
+#balance {
+  color: rgb(80, 171, 45);
+}
+
+#buying-power {
+  color: rgb(80, 171, 45);
+}
+
 
 button {
   cursor: pointer;
@@ -219,7 +251,7 @@ button {
 }
 
 .sell-btn {
-  padding: 10px 20px;
+  padding: 20px 40px;
   background-color: rgb(255, 71, 71);
   border: none;
   box-shadow: 0px 0px 2px 1px;
@@ -255,13 +287,8 @@ button {
   font-size: 10pt;
 }
 
-.stock-list-item-price {
-  margin-right: 25px;
-  background-color: rgb(40, 230, 40);
-  padding: 6px 8px;
-  border: 2px solid black;
-  font-size: 11pt;
-  color: black;
+.view {
+  margin-right: 2px;
 }
 
 .watchlist-text {

@@ -9,7 +9,7 @@ import {
 
 function App() {
   const [user, setUser] = useState(null);
-  
+
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
@@ -17,6 +17,8 @@ function App() {
       }
     });
   }, []);
+
+  console.log(user)
 
   const router = createBrowserRouter([
     {

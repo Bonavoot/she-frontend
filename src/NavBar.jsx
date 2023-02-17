@@ -13,12 +13,9 @@ const NavBar = ({user, handleLogout}) => {
         <input className="search" type="text" placeholder="Search" />
         </div>
         <div className="links">
-        <h2>Portfolio</h2>
-        <h2>Watchlist</h2>
+
         <h2 id="welcome">Welcome, {user ? user.name : navigate('/') }!</h2>
         <h2 onClick={handleLogout}>Logout</h2>
-
-
         </div>
         </div>
     )

@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import Signup from "./Signup"
 import logo from "./assets/she-logo.png"
 
-
-
 function LoginForm({ setUser }) {
   const navigate = useNavigate()
 
@@ -86,4 +84,3 @@ function handleLogin() {
   }
   
   export default LoginForm;
-
