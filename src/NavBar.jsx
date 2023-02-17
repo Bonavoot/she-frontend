@@ -1,7 +1,6 @@
 import logo from "./assets/she-logo.png"
 import { useNavigate } from "react-router-dom"
-
-const NavBar = ({user}) => {
+const NavBar = ({user, handleLogout}) => {
     const navigate = useNavigate()
     
     return (
@@ -16,12 +15,10 @@ const NavBar = ({user}) => {
         <div className="links">
         <h2>Portfolio</h2>
         <h2>Watchlist</h2>
-        { user ?
-        <>
-        <h2 id="welcome">Welcome, name!</h2>
-            <h2 onClick={() => navigate("/")}>Logout</h2> 
-        </> : null
-        }
+        <h2 id="welcome">Welcome, {user ? user.name : navigate('/') }!</h2>
+        <h2 onClick={handleLogout}>Logout</h2>
+
+
         </div>
         </div>
     )
