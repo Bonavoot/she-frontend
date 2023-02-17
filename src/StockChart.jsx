@@ -2,18 +2,16 @@ import {useState, useEffect} from "react"
 import Chart from 'react-apexcharts';
 import StockInfo from "./StockInfo";
 
-const StockChart = ({stockSymbol}) => {
-     const [price, setPrice] = useState(-1)
+const StockChart = ({volume, user, stockSymbol}) => {
+     const [price, setPrice] = useState(10)
      const [prevPrice, setPrevPrice] = useState(-1)
      const [priceTime, setPriceTime] = useState(null)
      const [series, setSeries] = useState([{data: []}])
-
      const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
      // let API_Call = `${proxyUrl}https://query1.finance.yahoo.com/v8/finance/chart/${stockSymbol}`;
-     
+ 
     console.log(stockSymbol)
-
-
+    
      const round = (number) => {
         return number ? +(number.toFixed(2)) : null;
       };
@@ -22,7 +20,7 @@ const StockChart = ({stockSymbol}) => {
     useEffect(() => {
        // let timeoutId;
        async function fetchStocks() {
-        const res = await fetch(`${proxyUrl}https://query1.finance.yahoo.com/v8/finance/chart/${stockSymbol}`)
+        const res = await fetch("")//`${proxyUrl}https://query1.finance.yahoo.com/v8/finance/chart/${stockSymbol}`)
         console.log(res)
         return res.json()
     }
@@ -74,9 +72,8 @@ const StockChart = ({stockSymbol}) => {
     {price}
     </div>  
     <Chart options={chart.options} series={series} type="candlestick" width="1000" height={350} />
-    <StockInfo price={price} stockSymbol={stockSymbol} prevPrice={prevPrice} />
+    <StockInfo volume={volume}  user={user} price={price} stockSymbol={stockSymbol.toUpperCase()} prevPrice={prevPrice} />
     </div>
-
     )
   }
 

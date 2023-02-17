@@ -1,9 +1,11 @@
 import StockListItem from "./StockListItem"
 import { useEffect, useState } from "react"
+import Watchlist from "./Watchlist"
 
-const StockList = ({setStockSymbol}) => {
-
+const StockList = ({setVolume, setStockSymbol, user}) => {
     const [stocks, setStocks] = useState([])
+
+    
 
     const fetchStockSymbols = async () => {
             const req = await fetch('http://localhost:3000/stocks')
@@ -16,7 +18,7 @@ const StockList = ({setStockSymbol}) => {
         fetchStockSymbols()
     }, [])
 
-    // console.log(stocks)
+     console.log(stocks)
 
     const alphabeticalOrder = stocks.sort(function(a, b){
         if(a.symbol < b.symbol) { return -1; }
@@ -27,15 +29,12 @@ const StockList = ({setStockSymbol}) => {
     return (
         <ul className="stock-list">
             <div>
-            <h1 className="watchlist-text">Watchlist <span className="material-symbols-outlined">star</span></h1>
-            <StockListItem />
-            <StockListItem />
-            <StockListItem />
+            <Watchlist user={user} setStockSymbol={setStockSymbol} />
             </div>
             <div className="all-stocks">
             <h1 className="all-stocks-text">All Stocks <span className="material-symbols-outlined">newspaper</span></h1>
             {alphabeticalOrder.map((stock) => {
-                return <StockListItem setStockSymbol={setStockSymbol} stock={stock.symbol} />
+                return <StockListItem setVolume={setVolume} setStockSymbol={setStockSymbol} stock={stock.symbol} />
             })}
             </div>
         </ul>

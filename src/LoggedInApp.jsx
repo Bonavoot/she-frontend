@@ -13,12 +13,14 @@ function LoggedInApp({ user, setUser }) {
         }
     })
   }
+ 
     return (
     <div className="container">
       <NavBar user={user} handleLogout={handleLogout} />
-      <Home />
+      <Home user={user} />
     </div> 
     );
   }
   
   export default LoggedInApp;
+
