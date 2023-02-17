@@ -98,9 +98,9 @@ html {
   color: white;
 }
 
-.signup-form-container > h1 {
+/* .signup-form-container > h1 {
   
-}
+} */
 
 .signup-form-container * input {
   width: 250px;
@@ -255,13 +255,8 @@ button {
   font-size: 10pt;
 }
 
-.stock-list-item-price {
-  margin-right: 25px;
-  background-color: rgb(40, 230, 40);
-  padding: 6px 8px;
-  border: 2px solid black;
-  font-size: 11pt;
-  color: black;
+.view {
+  margin-right: 20px;
 }
 
 .watchlist-text {

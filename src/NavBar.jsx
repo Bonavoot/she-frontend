@@ -17,8 +17,6 @@ const NavBar = ({user, handleLogout}) => {
         <h2>Watchlist</h2>
         <h2 id="welcome">Welcome, {user ? user.name : navigate('/') }!</h2>
         <h2 onClick={handleLogout}>Logout</h2>
-
-
         </div>
         </div>
     )

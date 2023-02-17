@@ -2,7 +2,7 @@ import NavBar from "./NavBar"
 import Home from "./Home"
 
 function LoggedInApp({ user, setUser }) {
-    
+  console.log(user)
   const handleLogout = () => {
     setUser(null)
     fetch('http://localhost:3000/logout', {
