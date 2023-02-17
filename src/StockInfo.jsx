@@ -4,13 +4,12 @@ const StockInfo = ({volume, price, user, stockSymbol}) => {
 const [buyingPower, setBuyingPower] = useState(user.buying_power)
 const [buyQuantity, setBuyQuantity] = useState(1)
 const [totalStockQuantity, setTotalStockQuantity] = useState(0)
-const [sellQuantity, setSellQuantity] = useState(0)
+const [sellQuantity, setSellQuantity] = useState(1)
 
       const handleBuyButton = () => {
         setBuyingPower(buyingPower - (price * buyQuantity))
         console.log(totalStockQuantity)
         setTotalStockQuantity(parseInt(totalStockQuantity) + parseInt(buyQuantity))
-       
       }
 
       const handleSellButton = () => {
